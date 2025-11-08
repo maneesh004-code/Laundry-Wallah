@@ -1,32 +1,31 @@
-/* GLOBAL STYLES & FONT SETUP */
+/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
-    /* The box-sizing property ensures padding/border don't cause overflow/scroll */
-}
-
-body {
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-/* --- NAVBAR STYLES --- */
+/* Navbar styling */
 .navbar {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
-    /* Use vh for height/padding to contribute to the non-scroll requirement */
-    padding: 1.5vh 5vw; 
     background-color: #f8f8f8;
-    color: #333;
+    padding: 1.5vh 5vw;
+    height: 10vh;
     border-bottom: 1px solid #ddd;
-    /* Explicit height ensures the hero section calculation below is accurate */
-    height: 10vh; 
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    list-style: none;
 }
 
 .nav-links li {
@@ -35,91 +34,72 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #555;
+    color: #444;
     font-weight: 500;
 }
 
-.logo, .user-name {
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.user-name {
     font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer; /* Indicates it's interactive */
-    transition: color 0.3s ease; /* Makes the transition smooth */
-    
-
-}
-.user-name:hover {
-    color: #007bff; /* Change text color to blue */
-    font-weight: 900; /* Make it extra bold */
+    color: #007bff;
 }
 
-
-/* --- HERO SECTION STYLES --- */
-
-/* REQUIRED: Main Container - Uses viewport height (vh) to fit the screen */
+/* Hero section styling */
 .hero-section {
     display: flex;
-    /* Calculation: 100vh (full screen height) - 10vh (navbar height) = 90vh */
-    height: 90vh; 
-    width: 100vw;
-    background-color: #e6f7ff; 
-    padding: 0 5vw; 
-    overflow: hidden; /* Ensures no content accidentally causes scrollbars */
+    justify-content: space-between;
+    align-items: center;
+    height: 90vh; /* 100vh total minus navbar height */
+    background-color: #e6f7ff;
+    padding: 0 5vw;
+    overflow: hidden;
 }
 
-/* Left Div Styles */
 .hero-left {
-    flex: 1; /* Takes up half the space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically centers content */
+    flex: 1;
     padding-right: 3vw;
 }
 
-.hero-heading {
-    /* Use vw for font size to scale with the screen width */
-    font-size: 5vw; 
-    line-height: 1.1;
-    color: #1a4f80; 
-    margin-bottom: 3vh;
+.hero-left h1 {
+    font-size: 4vw;
+    color: #1a4f80;
+    margin-bottom: 2vh;
+    line-height: 1.2;
 }
 
-.hero-description {
-    /* Use vw for font size */
-    font-size: 1.5vw; 
+.hero-left p {
+    font-size: 1.3vw;
     color: #555;
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
     max-width: 80%;
 }
 
-.book-button {
-    background-color: #ff6347; 
+.hero-left button {
+    background-color: #ff6347;
     color: white;
-    /* Use vh/vw for button padding/size */
-    padding: 1.5vh 3vw; 
     border: none;
-    border-radius: 5px;
+    padding: 1.5vh 3vw;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1.5vw;
-    width: 40%; 
+    font-size: 1.2vw;
+    transition: 0.3s;
 }
 
-/* Right Div Styles */
+.hero-left button:hover {
+    background-color: #e5533d;
+}
+
 .hero-right {
-    flex: 1; /* Takes up the other half of the space */
+    flex: 1;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-right img {
-    /* Set image size based on viewport units to ensure it fits vertically */
-    max-height: 70vh; 
-    max-width: 40vw;
-    height: auto;
+    max-height: 70vh;
     width: auto;
-}
-
-/* Styles for Assignment 1 sections to prevent collapse */
-#about, #services, #price-list, #book-now, footer {
-    padding: 30px 5vw;
 }
